@@ -6,6 +6,10 @@ import { handleNewMember } from "./events/welcome.js";
 import * as qlq from "./commands/qlq.js";
 import * as factos from "./commands/factos.js";
 
+import express from "express";
+const app = express();
+const port = process.env.PORT || 3000;
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -26,8 +30,10 @@ const handleInteraction = async (interaction) => {
   if (commandName === "factura") await factos.execute(interaction);
 };
 
-client.once(Events.ClientReady, readyDiscord);
+app.listen(port, () => {
+  client.once(Events.ClientReady, readyDiscord);
 
-client.login(TOKEN);
-client.on(Events.InteractionCreate, handleInteraction);
-client.on(Events.GuildMemberAdd, handleNewMember);
+  client.login(TOKEN);
+  client.on(Events.InteractionCreate, handleInteraction);
+  client.on(Events.GuildMemberAdd, handleNewMember);
+});

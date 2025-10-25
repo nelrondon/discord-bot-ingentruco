@@ -13,7 +13,8 @@ const facts = [
   "No digan grocerias, Liliana se molesta.",
   "#HErick (pd: Ni en MasXMenos te respetan).",
   "Dos mujeres juntas es un hombre mal puesto.",
-  "Áun José no le paga sus riales a Nel.",
+  "Sea cuando sea que veas esto, áun José no le paga sus riales a Nel.",
+  "Si una mujer te va a gritar, que sea para decirte que está servida la comida",
 ];
 
 export const data = new SlashCommandBuilder()
